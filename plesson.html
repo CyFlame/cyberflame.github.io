@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberFlame - Lesson Blog</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #262626;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #ff4d4d;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4d4d;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #262626;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .lesson-title {
+      font-size: 2.5rem;
+      color: #ff4d4d;
+      margin-bottom: 10px;
+    }
+
+    .lesson-meta {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .lesson-content h2 {
+      color: #ff4d4d;
+      margin-top: 20px;
+    }
+
+    .lesson-content p {
+      margin-bottom: 15px;
+    }
+
+    .lesson-content ul {
+      padding-left: 20px;
+      list-style: disc;
+    }
+
+    .lesson-content code {
+      background-color: #333;
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #ffcc00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #262626;
+      color: #aaa;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>CyberFlame Lessons</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="Lessons.html">All Lessons</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 class="lesson-title">What Is Phishing?</h2>
+    <div class="lesson-meta">Published on February 24, 2024 | Author: S.Luis@CyberFlame</div>
+
+    <div class="lesson-content">
+      <p>The term "Phishing" is a playful misspelling of the word fishing. It's named that way for very good reason! To understand Phishing
+it's useful to understand the analogy behind it.</p>
+	<p>Just as a fisherman uses bait to catch fish. Criminals will use bait to catch you.</p>
+	<p>The bait can come in many forms - all of which designed to pull you in and potentially divulge credentials, click malicious links
+or engage you in a social engineering scam</p>
+	<p>We'll start by inspecting a Malicious phishing website, then we'll take a look at some more advanced methods like 
+how these attackers deliver malicious payloads e.g. Malware (malicious software), to your machine</p>
+
+      <h2>🔑 Here are some Key methods to look out for:</h2>
+      <ul>
+        <li><strong>Malicious Phishing Site:</strong> Here is an example of an unsophisticated credential steal</li>
+	<p>You'll see below a very familiar website</p>
+	<img src="fbexample.png" alt="Phishing Example" width="750">
+	<p>Looks like the real deal!</p>
+	<p>This is a classic example of a Phishing site that I've pulled together.</p>
+	<p>The danger here? the site is not legitimate. The input fields don't serve any
+purpose other than to store your data locally on the server that the site is hosted on (in this example).</p>
+	<p> Commonly, these sites will ask for an input -so you input your legitimate credentials- then you will be
+prompted that your password is wrong. This causes most people to input the password again, either the same as before or with a variation -
+completely consolidating the integrity of the stolen data for the attacker.</p>
+	<p>I've Highlighted some important things to look for:</p>
+	<img src="pointers.png" alt="Phishing Example" width="780">
+	<p>Firstly, you'll notice the URL (The website's address) says "http://facebcok.com". This is what we would call obfuscation.</p>
+	<p>The attacker will hide this in plain site, however if you're not looking for it - it could easily be missed!</p>
+	<p>Malicious actors pay alot of money for domains like this - sometimes referred to as "Typo Squatting".</p>
+	<p>Be especially careful if the site is associated with a login that may have access to sensitive data.</p>
+	<p>Next you'll notice the "Incorrect Password" prompt that I mentioned earlier. By entering your password twice - this 
+shows the attacker that the password you've entered is definitely correct. It becomes even more damaging if you proceed to enter a DIFFERENT 
+common password that you'd normally use - now the attacker has your email and two of your passwords.</p>
+	<p>Finally, it's very common for pages like this to be ripped straight from the raw source code of the original site (Copied),
+so you may find that links on the page may not work at all! This is because it creates extra work for the attacker to properly manage the backend, or they may not be 
+technically literate. In some cases however, malicious actors will spend the time to flesh the site out - making it feel more legitimate.</p>
+	<p>If you do find yourself falling victim to this technique, you'd most likely find yourself being redirected to the real website that
+the phishing site is impersonating. Unfortunately, this can be extremely effective as this may eradicate any existsing suspicions you may have</p>
+	<p></p>
+	<p>Now... getting you to this site is where the real "Bait" part of phishing is put to action.</p>
+	<p>You'll see below an example of a Phishing attempt that may bring you to this site:</p>
+	<img src="facebookphishingemail.jpg" alt="Phishing Example" width="600">
+	<p>The "bait" here, is the social engineering, causing the target to feel anxious which may affect the decisions they make.
+Upon reading this, you may click almost instantly. That's the point. That's the bait.</p>
+	<p>There can be variations on this.</p>
+	<li><strong>"Your account needs further action or risk being deactivated"</strong></li>
+	<li><strong>"You've recieved a message from Bob - Login to view your new message"</strong></li>
+	<li><strong>"Your account password has been changed. Was this you?"</strong></li>
+	<p>Make sure you always scrutinise the sender's email address. Check for typos or things like cyrillic characters (characters that look like
+the characters on your keyboard right now, however may look slightly different)</p>
+	<p>Running Phishing sites is becoming one of the largest growing economies in Cybercrime. The real danger is not -
+someone hacking into your facebook and posting cat pictures, but the value in auctioning off credentials en mass to the highest bidder.</p>
+	<p>If you're someone that uses the same password across many sites, this would be a very big problem for you - not to mention giving access
+to personal details such as: chat logs, private photographs, addresses, linked accounts, payment information.</p>
+	<p>Cybercrime and Fraud ruins lives.</p>
+	<p>On a lighter note, let's look at some phishing site statistics!</p>
+	<li><strong>One Phishing site created</strong> Every 11 Seconds</li>
+        <li><strong>Nearly 1/3</strong> of all data breaches involve a phishing site attack</li>
+        <li><strong>In 2022</strong> 83% of UK businesses were targeted with a Phishing Site attack</li>
+        <li><strong>1.3 Million</strong> Phishing sites reported and known</li>
+      </ul>
+
+      <h2>Drive by Downloads and Malware:</h2>
+      <p>A "Drive by download" refers to a malicious download that doesn't require you to do anything other than visit a particular URL</p>
+	<p>Take a look at the following URL:</p>
+	<p><code>https://dodgydomain/download?Dodgydownload="a7bce3f6d"</code></p>
+	<p>A brief explanation. This URL triggers an http "GET" request, the link queries the server's database for the malware to
+download</p>
+	<p>You'll see the "https://Dodgydomain" structure that you may be familiar with - the "/download" portion refers to a subdomain
+of the website (A particular page hosted on the address you're searching for).</p>
+	<p>The "?Dodgydownload="a7bce3f6d"" section is the part that asks the server "Hey, could you find this particular file and download it
+for me?</p>
+	<p>It's not a very sophisticated technique for this, however is very common. If you wanted to, you can capture these requests and analyse them before they're sent in Security tools like "BurpSuite".</p>
+	<p>There is plenty of security features in place to protect against this on the browser level.</p>
+	<li><strong>However, to effectively take advantage of these, keep your Browser up to date</strong></li>
+
+      <h2></h2>
+      <ul>
+
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    © 2024 CyberFlame. All rights reserved.
+  </footer>
+</body>
+
+</html>
