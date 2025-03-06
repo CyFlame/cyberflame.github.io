@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberFlame - Lesson Blog</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #262626;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #ff4d4d;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4d4d;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #262626;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .lesson-title {
+      font-size: 2.5rem;
+      color: #ff4d4d;
+      margin-bottom: 10px;
+    }
+
+    .lesson-meta {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .lesson-content h2 {
+      color: #ff4d4d;
+      margin-top: 20px;
+    }
+
+    .lesson-content p,
+    .lesson-content ul {
+      margin-bottom: 15px;
+    }
+
+    .lesson-content ul {
+      padding-left: 20px;
+      list-style: disc;
+    }
+
+    .lesson-content code {
+      background-color: #333;
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #ffcc00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #262626;
+      color: #aaa;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>CyberFlame Lessons</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="Lessons.html">All Lessons</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 class="lesson-title">Public Wifi And HTTP</h2>
+    <div class="lesson-meta">Published on 28/02/25 | Author: S.Luis@Cyberflame</div>
+
+    <div class="lesson-content">
+      <h2>Introduction</h2>
+      <p>In this lesson we're going to look at some of the potential dangers of using public networks.</p>
+      <p>We'll take a walk through the workings and dangers of http in this particular setting,
+        then we'll look at some common techniques such as 'Man in the middle' attacks. Stay till the end to see my Raspberry Pi do some nifty things.</p>
+      <p>Buckle up...</p>
+      
+      <h2>HTTP</h2>
+      <p>When you load a webpage - your browser communicates with the server in which the 
+        site is hosted on (or one of many servers) - in order to request things or receive responses to things.
+      </p>
+      <p>To understand this fully we'll use an analogy.</p>
+      <p>Imagine you're sending a letter to your friend</p>
+      <p><code>Dear John,<br>Hope you're well. Could you send me Bob's
+    address so I can send his birthday present?</code></p>
+      <p>You post your letter, your friend receives it and reads it - happy days.</p>
+      <p>Now the only reason this works is because you both have an established format beforehand</p>
+      <p>This would be a much more complicated process if you sent this to your friend 
+        in morse code played on the bagpipes. The same information is there, you just have
+        to figure out how to interpret it. Imagine the look on their face.</p>
+      <p>The same applies when asking a web server for a web page, the server has to understand
+        what your browser is asking for and vice versa. It expects the information to be 
+        packaged in a certain way or it won't be able to fully understand it. This is an example of an application layer
+        protocol.</p>
+      <p>HTTP is a universally accepted format in which communication is sent back and forth
+        over the internet when browsing sites - in the same way that your friend john expects you
+        to communicate with him in a letter rather than a carrier pigeon.
+      </p>
+      <p>HTTP comes in two main flavours. HTTP and HTTPS. The first stands for "HyperText Transfer Protocol". The latter has an 'S' on the end - this stands for 'Secure'</p>
+      <p>Let's go back to our analogy. John replies:</p>
+      <p><code>Hey!<br>Of course, my address is 123 CyberFlame Lane.</code></p>
+      <p>Now imagine if someone were to pinch that letter from the postman's van. They would be able to see Bob's address 
+        in clear text right infront of them!</p>
+      <p>Unfortunately, this did happen. A man with unusually slender arms reached into the postbox and stole John's letter!</p>
+      <p>So what now?</p>
+      <p>You need Bob's address however you don't want to risk leaking sensitive information again?</p>
+      <p>You and John decide - let's create a code that only we can understand, then if someone steals it they won't be able to read it!</p>
+      <p>This is called <strong>Encryption</strong></p>
+      <p>HTTPS works in the same way as we've just seen with John's encrypted letter. If anyone were to intercept it, they'd have 
+        a very hard time decrypting it (although is possible with certain techniques)!</p>
+      <p>This comes in handy when using public networks... Because it's public, anyone could connect and look at the traffic moving in and out of the network.</p>
+      <p>If you're communicating with a site that expects HTTPS communication, most of the data is next to impossible to interpret without having the key to
+        decrypt it.</p>
+      <p>I'll load up a tool called "Wireshark" and show you exactly what this looks like:</p>
+      <img src="wiresharkexample.png" alt="" style="width: 500px; height: auto;">
+      <p>If you look at the right side of the screenshot, the data Highlighted in blue is completely unlegible.</p>
+      <p>Now... If you were to use HTTP without the encryption, you'd be able to see far more data in good ole' plain english. If you look
+        at the URL of this webpage, you'll see you're using the HTTP protocol - this isn't an issue, as you're likely viewing this on
+        a private network. If you are reading this on a coffee shop wifi for example, not to worry - you're not sending or receiving anything
+        sensitive and if someone did intercept your packets to this website they'd get to read this wonderful article too!
+      </p>
+      <p>The action of watching these packets travelling in and out of the network is called packet sniffing.</p>
+      <h2>Man In The Middle Attacks</h2>
+      <p>Man In The Middle Attacks or 'MITM' is slightly more sophisticated.</p>
+      <p>Malicious actors use techniques to not only 'sniff' the packets, but capture them before they reach their destination.</p>
+      <p>By doing this, they could potentially modify the contents of what you're sending, redirect your requests to a malicious website or
+        even downgrade your https communication to http.
+      </p>
+      <p>The attacker can do this with the following communication:</p>
+      <p><code>Attacker:"Hey Mr victim, just letting you know that I'm the router, send your requests to me and I'll forward them for you!"<br>
+    Then<br>Attacker:"Hey Mr Router, I'm the guy sending out packets to that website, send any responses to me!"</code></p>
+      <p>See, devices will have a table that stores the addresses of other devices on their network. By doing what the attacker has done, 
+        you set yourself up quite literally as a "Man in the middle".
+      </p> 
+      <h3>Following this theme, lets learn about rogue access points:</h3>
+      <p>Take a look at this itty bitty machine</p>
+      <img src="mypi.jpg" alt="" style="width: 500px; height: auto;">
+      <p>What you're looking at is a Raspberry Pi - to put it simply, it's a teeny weeny computer.</p>
+      <p>You'll understand why it would be a useful device for an attacker very soon,
+      but for now, imagine the versitility of having the customization of a full PC in a device 
+      as small as the palm of your hand.</p>
+      <p>To understand Rogue access points we'll look at an example.</p>
+      <p>Take a look at this screenshot captured on my iphone (i've censored out local networks)</p>
+      <img src="testwifi.jpg" alt="" style="width: 500px; height: auto;">
+      <p>The network named "Test_Wifi_" is a network I'm broadcasting from my Raspberry Pi</p>
+      <p>I have it set up in a way, that when joined, you are met with a "Login" page - similar to what you 
+      might find on a public wifi access point when you connect</p>
+      <p><code>Side Note: I've put this network behind a password to stop my neighbours from 
+      accidentally joining - if they were to try then they obviously haven't read this article</code></p>
+      <p>The login page works in a similar way to the phishing sites we examined in the Phishing Awareness article here on Cyberflame</p>
+      <p>In a way, this is indeed phishing - however you could take this further. An <strong>Evil Twin</strong> attack uses the same concept, however instead of relying on people falling for the bait, this attack would use methods such as deauthentication attacks to boot devices off a network then have them connect to your network</p>
+      <p>You'll see how easy it is to impersonate the name of a network in your vicinity. Check out the "ssid" parameter in the configuration file for my network:</p>
+      <img src="hostapdconf.png" alt="" style="width: 500px; height: auto;">
+    </div>
+  </div>
+
+  <footer>
+    © 2024 CyberFlame. All rights reserved.
+  </footer>
+</body>
+
+</html>
